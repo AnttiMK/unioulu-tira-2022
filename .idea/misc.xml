@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/00-init/pom.xml" />
+        <option value="$PROJECT_DIR$/02-mode/pom.xml" />
+        <option value="$PROJECT_DIR$/03-draw/pom.xml" />
+        <option value="$PROJECT_DIR$/project/booksandwords/pom.xml" />
+        <option value="$PROJECT_DIR$/01-arrays/pom.xml" />
+        <option value="$PROJECT_DIR$/04-1-stack/pom.xml" />
+        <option value="$PROJECT_DIR$/04-2-queue/pom.xml" />
+        <option value="$PROJECT_DIR$/xx-braille/pom.xml" />
+        <option value="$PROJECT_DIR$/05-invoices/pom.xml" />
+        <option value="$PROJECT_DIR$/05-binsearch/pom.xml" />
+        <option value="$PROJECT_DIR$/67-phonebook/pom.xml" />
+        <option value="$PROJECT_DIR$/04-3-linkedlist/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="temurin-18" project-jdk-type="JavaSDK" />
+</project>

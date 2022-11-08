@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/00-init/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/00-init/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01-arrays/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01-arrays/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/02-mode/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/02-mode/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/03-draw/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/03-draw/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04-1-stack/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04-1-stack/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04-2-queue/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04-2-queue/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04-3-linkedlist/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04-3-linkedlist/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05-binsearch/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05-binsearch/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05-invoices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05-invoices/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/67-phonebook/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/67-phonebook/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project/booksandwords/src/main" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project/booksandwords/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xx-braille/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xx-braille/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
