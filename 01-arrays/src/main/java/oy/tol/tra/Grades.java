@@ -23,43 +23,30 @@ public class Grades {
     * The method to reverse the internal Java int array.
     */
    public void reverse() {
-      /* TODO:
-       1. Execute the tests following the instructions.
-       2. Study the code below and try to find what is the issue.
-       3. Use the debugger to see the execution and variable values if necessary.
-       4. Fix the issue.
-       5. Transform the algorithm to a generic one as instructed in the readme file.
-      */
       int i = 0;
-      while (i <= grades.length/2) {
+      while (i < grades.length / 2) {
          int temp = grades[i];
-         grades[i] = grades[grades.length-i-1];
-         grades[grades.length-i-1] = temp;
+         grades[i] = grades[grades.length - i - 1];
+         grades[grades.length - i - 1] = temp;
          i++;
-     }
+      }
    }
 
    /**
     * Sorts the array to ascending order.
     */
    public void sort() {
-      /* TODO:
-       1. Execute the tests following the instructions.
-       2. Study the code below and try to find what is the issue.
-       3. Use the debugger to see the execution and variable values if necessary.
-       4. Fix the issue.
-       5. Transform the algorithm to a generic one as instructed in the readme file.
-      */
-      int i = grades.length-1;
-      while (i > 0) {
-         if (grades[i] < grades[i-1]) {
-            int tmp = grades[i];
-            grades[i] = grades[i-1];
-            grades[i-1] = tmp;
-         }
-         i--;
-      }
+      int length = grades.length;
+      for (int i = 1; i < length; i++) {
+         int key = grades[i];
+         int j = i - 1;
 
+         while (j >= 0 && grades[j] > key) {
+            grades[j + 1] = grades[j];
+            j--;
+         }
+         grades[j + 1] = key;
+      }
    }
 
 

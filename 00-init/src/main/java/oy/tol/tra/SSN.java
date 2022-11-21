@@ -100,7 +100,15 @@ public class SSN {
                String personNumberString = ssn.substring(PERSON_CODE_INDEX_START,
                      PERSON_CODE_INDEX_START + PERSON_CODE_LENGTH);
                // Next checking the three digit number after the century separator.
-               Integer personNumber = Integer.parseInt(personNumberString);
+
+               Integer personNumber;
+               try {
+                  personNumber = Integer.parseInt(personNumberString);
+               } catch (NumberFormatException e) {
+                  // Not a valid SSN
+                  return Result.INVALID_SSN;
+               }
+
                if (personNumber > 0) {
                   // If it was a positive integer, then calculate the checksum.
                   StringBuilder builder = new StringBuilder();
