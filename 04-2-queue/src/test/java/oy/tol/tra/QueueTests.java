@@ -113,7 +113,7 @@ import org.junit.jupiter.api.Order;
         QueueInterface<Integer> queueToTest = QueueFactory.createIntegerQueue(queueSize);
         assertTrue(queueToTest.isEmpty(), () -> "The queue should be empty.");
         // Create a random count to fill the queue to.
-        int elementCount = randomizer.nextInt(queueSize);
+        int elementCount = randomizer.nextInt(queueSize) + 5;
         // Fill the list with test data.
         List<Integer> testData = fillWithTestData(elementCount);
         // Push the test data to the queue, asserting that add succeeded.
