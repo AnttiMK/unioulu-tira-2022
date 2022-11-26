@@ -3,8 +3,7 @@ package oy.tol.tra;
 /**
  * An implementation of the StackInterface.
  * <p>
- * TODO: Students, implement this so that the tests pass.
- * 
+ *
  * Note that you need to implement construtor(s) for your concrete StackImplementation, which
  * allocates the internal Object array for the Stack:
  * - a default constructor, calling the StackImplementation(int size) with value of 10.
@@ -12,21 +11,24 @@ package oy.tol.tra;
  *  -- remember to maintain the capacity and/or currentIndex when the stack is manipulated.
  */
 public class StackImplementation<E> implements StackInterface<E> {
+   private static final int DEFAULT_CAPACITY = 10;
+   private static final int MINIMUM_CAPACITY = 2;
+   private static final int DEFAULT_INDEX = -1;
+   private static final int REALLOCATE_INCREMENT = 1;
 
-   // TODO: Add member variables needed.
-   // Do not use constant values in code, e.g. 10. Instead, define a constant for that. For example:
-   // private static final int MY_CONSTANT_VARIABLE = 10;
-
+   private Object [] itemArray;
+   private int capacity;
+   private int currentIndex;
 
    /**
     * Allocates a stack with a default capacity.
-    * @throws StackAllocationException
+    * @throws StackAllocationException If cannot allocate room for the internal array.
     */
    public StackImplementation() throws StackAllocationException {
-      // TODO: call the constructor with size parameter with default size (see member variable!).
+        this(DEFAULT_CAPACITY);
    }
 
-   /** TODO: Implement so that
+   /**
     * - if the size is less than 2, throw StackAllocationException
     * - if the allocation of the array throws with Java exception,
     *   throw StackAllocationException.
@@ -34,53 +36,101 @@ public class StackImplementation<E> implements StackInterface<E> {
     * @throws StackAllocationException If cannot allocate room for the internal array.
     */
    public StackImplementation(int capacity) throws StackAllocationException {
+      if (capacity < MINIMUM_CAPACITY) {
+         throw new StackAllocationException("Stack capacity must be >= 2");
+      }
+
+      try {
+         itemArray = new Object[capacity];
+      } catch (Exception e) {
+         throw new StackAllocationException("Could not allocate stack");
+      }
+
+      this.capacity = capacity;
+      this.currentIndex = DEFAULT_INDEX;
    }
 
    @Override
    public int capacity() {
-      // TODO: Implement this
-      return 0;
+      return capacity;
    }
 
    @Override
    public void push(E element) throws StackAllocationException, NullPointerException {
-      // TODO: Implement this
+      if (element == null) {
+         throw new NullPointerException("Cannot push a null element");
+      }
+
+      // Check if we need to reallocate
+      if (currentIndex == capacity - 1) {
+         try {
+            Object[] newArray = new Object[capacity + REALLOCATE_INCREMENT];
+            // Note: Could use a for loop here, but System.arraycopy is native code and hence faster
+            System.arraycopy(itemArray, 0, newArray, 0, capacity);
+            itemArray = newArray;
+            capacity += REALLOCATE_INCREMENT;
+         } catch (StackAllocationException e) {
+            throw new StackAllocationException("Could not allocate more space for stack");
+         }
+      }
+
+      itemArray[++currentIndex] = element;
    }
 
    @SuppressWarnings("unchecked")
    @Override
    public E pop() throws StackIsEmptyException {
-      // TODO: Implement this
-      return null;
+      if (currentIndex == DEFAULT_INDEX) {
+          throw new StackIsEmptyException("Cannot pop from an empty stack");
+      }
+
+      E element = (E) itemArray[currentIndex];
+      itemArray[currentIndex] = null;
+      currentIndex--;
+      return element;
    }
 
    @SuppressWarnings("unchecked")
    @Override
    public E peek() throws StackIsEmptyException {
-      // TODO: Implement this
-      return null;
+      if (currentIndex == DEFAULT_INDEX) {
+         throw new StackIsEmptyException("Cannot peek an empty stack");
+      }
+
+      return (E) itemArray[currentIndex];
    }
 
    @Override
    public int size() {
-      // TODO: Implement this
-      return 0;
+      return currentIndex + 1;
    }
 
    @Override
    public void clear() {
-      // TODO: Implement this
+      for (int i = 0; i <= currentIndex; i++) {
+         itemArray[i] = null;
+      }
+      currentIndex = DEFAULT_INDEX;
    }
 
    @Override
    public boolean isEmpty() {
-      // TODO: Implement this
-      return false;
+        return currentIndex == DEFAULT_INDEX;
    }
 
    @Override
    public String toString() {
-      // TODO: Implement this
-      return "";
+      StringBuilder sb = new StringBuilder();
+      sb.append("[");
+
+      for (int i = 0; i <= currentIndex; i++) {
+         sb.append(itemArray[i].toString());
+         if (i < currentIndex) {
+            sb.append(", ");
+         }
+      }
+
+      sb.append("]");
+      return sb.toString();
    }
 }
