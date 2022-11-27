@@ -10,7 +10,16 @@ Jos tehtävässä pyydetään **raportoimaan** jotain, kirjoita myös nämä rap
 
 ## 02-mode
 
-Tähän tehtävään liittyy raportti! Lue ohjeet!
+![Kuvakaappaus Excelistä](02-excel.png)
+Arvoja taulukoimalla arvioidaan, että funktion aikakompleksisuusluokka on todennäköisesti ``O(n) - O(n^2)`` . 
+
+Koodia tutkailemalla kuitenkin nähdään, että aikakompleksisuusluokka on todennäköisesti huonompi, mitä taulukosta voidaan lukea.
+Funktio järjestää aluksi listan insertion sortilla, jonka aikakompleksisuus on parhaassa tapauksessa ``O(n)`` ja huonoimmassa tapauksessa ``O(n^2)``.
+Funktio käy sitten läpi listan ja laskee tyyppiarvon,johon menee aina ``O(n)`` aikaa. Tällöin koko
+funktion aikakompleksisuusluokka huonoimmassa tapauksessa on ``O(n^2)``.
+
+Taulukoiduissa arvoissa oli jonkin verran vaihtelua, joten niistä ei suoraan pystynyt päättelemään funktion aikakompleksisuutta.
+Funktion nopeuteen voi esimerkiksi vaikuttaa käytetty suoritusalusta.
 
 ## 03-draw
 
