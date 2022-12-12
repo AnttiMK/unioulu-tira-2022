@@ -16,8 +16,6 @@ public class ListFactory {
     * @return The list object.
     */
    public static LinkedListInterface<String> createStringLinkedList() {
-      // - TODO: Instantiates your list implementation, 
-      // - and return the stack object to the caller.
-      return null;
+        return new LinkedListImplementation<>();
    }
 }
