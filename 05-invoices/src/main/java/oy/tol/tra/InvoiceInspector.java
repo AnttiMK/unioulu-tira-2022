@@ -119,30 +119,25 @@ public class InvoiceInspector {
       toCollectWriter.close();
    }
 
-
-   /**
-    * TODO: Implement this method so that the time complexity of creating new
-    * invoices to clients is significantly faster than the naive
-    * handleInvoicesAndPaymentsSlow().
-    * How to do this:
-    * 1. Both invoices and payments need to be sorted, so implement sorting using one of the
-    *    methods taught in the course. Quicksort and Heapsort are the most common ones to consider.
-    *    You need only one generic implementation to sort both Invoice and Payment arrays!
-         Note that both classes implement Comparable!
-    * 2. After the invoices and payments have been sorted, you still need to handle all the invoices in a loop.
-    * 3. When going through invoices, search for the corresponding payment using binary search.
-    * 4. If a payment was found, deduct from the invoice what was paid. If must still pay something, create an invoice.
-    * 5. If payment was not found, create a new invoice with the same invoice.
-    * @throws IOException
-    */
    public void handleInvoicesAndPaymentsFast() {
-
-      // Use the due date already calculated for you when creating new Invoices here!
       Calendar dueDate = Calendar.getInstance();
       dueDate.set(Calendar.MONTH, dueDate.get(Calendar.MONTH)+1);
       long dueDateValue = dueDate.getTime().getTime();
 
-      // TODO: Add your algorithm here!
+      Algorithms.fastSort(invoices);
+      Algorithms.fastSort(payments);
+
+      for (Invoice invoice : invoices) {
+         // Try to find index of payment
+         int index = Algorithms.binarySearch(new Payment(invoice.number, 0), payments, 0, payments.length - 1);
+         if (index != -1) {
+            if (invoice.sum.compareTo(payments[index].sum) > 0) {
+               toCollect.add(new Invoice(invoice.number, invoice.sum - payments[index].sum, dueDateValue));
+            }
+         } else {
+            toCollect.add(invoice);
+         }
+      }
    }
 
 }
