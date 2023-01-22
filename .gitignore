@@ -14,3 +14,10 @@ xcode/
 *.zip
 *.txt
 *.csv
+
+# IntelliJ IDEA
+.idea/
+
+*.iml
+*.ipr
+*.iws
