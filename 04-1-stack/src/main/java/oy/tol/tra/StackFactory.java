@@ -18,8 +18,6 @@ public class StackFactory {
     * @return The stack object.
     */
    public static StackInterface<Integer> createIntegerStack(int capacity) {
-      // - Instantiates your stack implementation, 
-      // - and return the stack object to the caller.
       return new StackImplementation<>(capacity);
    }
 

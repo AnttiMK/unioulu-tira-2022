@@ -60,10 +60,8 @@ public class DailyTasks {
         tasks = new String(getClass().getClassLoader().getResourceAsStream("DailyTasks.txt").readAllBytes());
         String[] allTasks = tasks.split("\\r?\\n");
         for (String task : allTasks) {
-            // TODO: Enqueue the task to your Queue implementation:
             dailyTaskQueue.enqueue(task);
         }
-        // TODO: print out to the console the number of tasks in the queue:
         System.out.println("Number of tasks: " + dailyTaskQueue.size());
     }
 

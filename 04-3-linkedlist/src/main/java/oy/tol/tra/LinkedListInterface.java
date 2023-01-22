@@ -2,7 +2,6 @@ package oy.tol.tra;
 
 /**
  * A generic interface to linked list class.
- * TODO: Write a class implementing this interface in a separate <code>LinkedListImplementation.java</code> file. 
  */
 public interface LinkedListInterface<E> {
    
@@ -12,7 +11,7 @@ public interface LinkedListInterface<E> {
     * @throws NullPointerException If the parameter element is null.
     * @throws LinkedListAllocationException If failed to allocate a new list element.
     */
-   public void add(E element) throws NullPointerException, LinkedListAllocationException;
+   void add(E element) throws NullPointerException, LinkedListAllocationException;
 
    /**
     * Add an element to the specified index in the list.
@@ -22,14 +21,14 @@ public interface LinkedListInterface<E> {
     * @throws LinkedListAllocationException If failed to allocate a new list element.
     * @throws IndexOutOfBoundsException If the specified index to the list is out of bounds.
     */
-    public void add(int index, E element) throws NullPointerException, LinkedListAllocationException, IndexOutOfBoundsException;
+   void add(int index, E element) throws NullPointerException, LinkedListAllocationException, IndexOutOfBoundsException;
 
    /**
     * Removes an element from the list. Element must not be null.
     * @return True if element was found and removed, false otherwise.
     * @throws NullPointerException If the parameter element is null.
     */
-    public boolean remove(E element) throws NullPointerException;
+   boolean remove(E element) throws NullPointerException;
 
    /**
     * Removes an element from the list.
@@ -37,7 +36,7 @@ public interface LinkedListInterface<E> {
     * @return Returns the element which was found and removed, null otherwise.
     * @throws IndexOutOfBoundsException If the specified index to the list is out of bounds.
     */
-    public E remove(int index) throws IndexOutOfBoundsException;
+   E remove(int index) throws IndexOutOfBoundsException;
 
     /**
     * Returns the element at the index, not removing it from the list.
@@ -45,7 +44,7 @@ public interface LinkedListInterface<E> {
     * @return The element in the specified index.
     * @throws IndexOutOfBoundsException If the specified index to the list is out of bounds.
     */
-   public E get(int index) throws IndexOutOfBoundsException;
+    E get(int index) throws IndexOutOfBoundsException;
 
    /**
     * Queries the index of the element in the list.
@@ -53,25 +52,24 @@ public interface LinkedListInterface<E> {
     * @return The index of the element, or -1 if it was not found.
     * @throws NullPointerException If the parameter element is null.
     */
-   public int indexOf(E element) throws NullPointerException;
+   int indexOf(E element) throws NullPointerException;
 
    /**
     * Returns the count of elements currently in the list.
     * Note that this method must perform in O(1).
     * @return Count of elements in the list.
     */
-   public int size();
+   int size();
 
    /**
     * Resets the list to an empty list.
     * Note that this method must perform in O(1).
     */
-   public void clear();
+   void clear();
 
-   // TODO: implement this in the 2nd task of the exercise.
    /**
     * Reverses the items in the list to opposite order.
     * Reversal happens in place; so the old order in this list is reversed.
     */
-    public void reverse();
+   void reverse();
 }

@@ -2,7 +2,6 @@ package oy.tol.tra;
 
 /**
  * An interface to stack class holding elements of type E.
- * TODO: Implement this interface in a separate <code>StackImplementation.java</code> file. 
  * 
  */
 public interface StackInterface<E> {
@@ -11,7 +10,7 @@ public interface StackInterface<E> {
     * For querying the capacity of the stack.
     @return The number of elements the stack can currently hold.
     */
-   public int capacity();
+   int capacity();
    
    /**
     * Push an element to the stack.
@@ -24,37 +23,37 @@ public interface StackInterface<E> {
     * @throws StackAllocationException if no additional room can be allocated for the stack
     * @throws NullPointerException if the element pushed is null.
     */
-   public void push(E element) throws StackAllocationException, NullPointerException;
+   void push(E element) throws StackAllocationException, NullPointerException;
 
    /**
     * Pops an element out of the stack, removing it from the internal data storage.
     * @return The popped element.
     * @throws StackIsEmptyException if the stack is empty.
     */
-   public E pop() throws StackIsEmptyException;
+   E pop() throws StackIsEmptyException;
 
    /**
     * Returns the element at the top of the stack, not removing it from the stack.
     * @return The element.
     * @throws StackIsEmptyException if the stack is empty.
     */
-   public E peek() throws StackIsEmptyException;
+   E peek() throws StackIsEmptyException;
 
    /**
     * Returns the size of the stack; the count of elements currently in the stack.
     * @return Size of the stack.
     */
-   public int size();
+   int size();
 
    /**
     *  Use to check if the stack is empty.
     * @return Returns true if the stack is empty, false otherwise.
     */
-    public boolean isEmpty();
+   boolean isEmpty();
 
    /**
     * Clears the stack so that it does not contain any elements. There is no need to
     * change the size of the internal array.
     */
-   public void clear();
+   void clear();
 }
