@@ -1,11 +1,13 @@
 package oy.tol.tra;
 
+import oy.tol.tra.util.Algorithms;
+
 /**
  * A generic and slow Key-Value linear array.
  */
-public class KeyValueArray<K extends Comparable<K>, V> implements Dictionary<K,V> {
+public class KeyValueArray<K extends Comparable<K>, V> implements Dictionary<K, V> {
 
-   private Pair<K, V> [] pairs = null;
+   private Pair<K, V>[] pairs = null;
    private int count = 0;
    private int reallocationCount = 0;
 
@@ -101,9 +103,7 @@ public class KeyValueArray<K extends Comparable<K>, V> implements Dictionary<K,V
    private void reallocate(int newSize) throws OutOfMemoryError {
       reallocationCount++;
       Pair<K, V> [] newPairs = (Pair<K,V>[])new Pair[newSize];
-      for (int index = 0; index < count; index++) {
-         newPairs[index] = pairs[index];
-      }
+      if (count >= 0) System.arraycopy(pairs, 0, newPairs, 0, count);
       pairs = newPairs;
    }
 
